@@ -1,0 +1,24 @@
+<app-menu></app-menu>
+
+<table class="table table-striped table-sm">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Price</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let i of items">
+            <td>{{ i.id }}</td>
+            <td>{{ i.name }}</td>
+            <td>{{ i.price | currency}}</td>
+            <td>
+                <a routerLink='/item/detail/{{i.id}}'>Detail</a> |
+                <a routerLink="/item/edit/{{i.id}}">Edit</a>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<button (click)="create()" class="btn btn-primary">Create Item</button>

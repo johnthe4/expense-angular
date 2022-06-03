@@ -1,0 +1,8 @@
+form {
+    width: 40%;
+    /* centers in browser */
+    margin: 45px auto;
+    padding: 10px;
+    border: 1px solid silver;
+
+}

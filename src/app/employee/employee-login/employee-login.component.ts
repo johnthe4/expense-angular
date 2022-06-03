@@ -25,8 +25,11 @@ export class EmployeeLoginComponent implements OnInit {
         this.router.navigateByUrl("/empl/list");
       },
       error: (err) => {
-        console.error(err);
-        this.message = "Email or password is invalid!";
+        if(err.status == 404){
+          this.message = "Email or password is invalid!";
+        } else {
+          console.error(err);
+        }
       }
     });
   }

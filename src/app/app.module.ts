@@ -11,6 +11,15 @@ import { EmployeeEditComponent } from './employee/employee-edit/employee-edit.co
 import { RouterModule } from '@angular/router';
 import { AppRoutingModule } from './app-routing.module';
 import { EmployeeLoginComponent } from './employee/employee-login/employee-login.component';
+import { MenuComponent } from './misc/menu/menu/menu.component';
+import { ExpenseListComponent } from './expense/expense-list/expense-list.component';
+import { ExpenseDetailComponent } from './expense/expense-detail/expense-detail.component';
+import { ExpenseCreateComponent } from './expense/expense-create/expense-create.component';
+import { ExpenseEditComponent } from './expense/expense-edit/expense-edit.component';
+import { ItemListComponent } from './item/item-list/item-list.component';
+import { ItemDetailComponent } from './item/item-detail/item-detail.component';
+import { ItemEditComponent } from './item/item-edit/item-edit.component';
+import { ItemCreateComponent } from './item/item-create/item-create.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +28,16 @@ import { EmployeeLoginComponent } from './employee/employee-login/employee-login
     EmployeeDetailComponent,
     EmployeeCreateComponent,
     EmployeeEditComponent,
-    EmployeeLoginComponent
+    EmployeeLoginComponent,
+    MenuComponent,
+    ExpenseListComponent,
+    ExpenseDetailComponent,
+    ExpenseCreateComponent,
+    ExpenseEditComponent,
+    ItemListComponent,
+    ItemDetailComponent,
+    ItemEditComponent,
+    ItemCreateComponent
   ],
   imports: [
     BrowserModule, FormsModule, HttpClientModule, RouterModule, AppRoutingModule
