@@ -1,57 +1,59 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { ExpenseLines } from 'src/app/expenselines/expenselines.class';
+import { ExpenselinesService } from 'src/app/expenselines/expenselines.service';
 import { Expense } from '../expense.class';
 import { ExpenseService } from '../expense.service';
 
 @Component({
-  selector: 'app-expense-detail',
-  templateUrl: './expense-detail.component.html',
-  styleUrls: ['./expense-detail.component.css']
+  selector: 'app-expenseline-list',
+  templateUrl: './expenseline-list.component.html',
+  styleUrls: ['./expenseline-list.component.css']
 })
-export class ExpenseDetailComponent implements OnInit {
+export class ExpenselineListComponent implements OnInit {
 
   expense!: Expense;
-  showVerify: boolean = false;
 
   constructor(
     private expsrvc: ExpenseService,
-    private route: ActivatedRoute,
-    private router: Router
+    private explsrvc: ExpenselinesService,
+    private router: Router,
+    private route: ActivatedRoute
   ) { }
 
   list(): void {
     this.router.navigateByUrl("/exp/list");
   }
 
-  approve(): void {
-    this.expsrvc.approve(this.expense.id, this.expense).subscribe({
+  submit(): void {
+    this.expsrvc.review(this.expense.id, this.expense).subscribe({
       next: (res) => {
-        console.debug(res)
-        this.router.navigateByUrl("/exp/list");
+        console.debug("submitted for review");
+        this.refresh();
       },
       error: (err) => {
         console.error(err);
       }
-    });
+    })
   }
 
-  remove(): void {
-    this.showVerify = !this.showVerify;
-  }
-  
-  verify(): void {
-    this.expsrvc.remove(this.expense.id).subscribe({
+  delete(line: ExpenseLines): void {
+    this.explsrvc.remove(line.id).subscribe({
       next: (res) => {
         console.debug("Expense removed");
-        this.router.navigateByUrl("/exp/list");
+        this.refresh();
       },
       error: (err) => {
         console.error(err);
       }
-    });
+    })
   }
 
   ngOnInit(): void {
+    this.refresh();
+  }
+  
+  refresh(): void {
     let id: number = +this.route.snapshot.params["id"];
     this.expsrvc.get(id).subscribe({
       next:(res) => {

@@ -10,6 +10,9 @@ import { ExpenseCreateComponent } from './expense/expense-create/expense-create.
 import { ExpenseDetailComponent } from './expense/expense-detail/expense-detail.component';
 import { ExpenseEditComponent } from './expense/expense-edit/expense-edit.component';
 import { ExpenseListComponent } from './expense/expense-list/expense-list.component';
+import { ExpenselineListComponent } from './expense/expenseline-list/expenseline-list.component';
+import { ExpenselinesCreateComponent } from './expenselines/expenselines-create/expenselines-create.component';
+import { ExpenselinesEditComponent } from './expenselines/expenselines-edit/expenselines-edit.component';
 import { ItemCreateComponent } from './item/item-create/item-create.component';
 import { ItemDetailComponent } from './item/item-detail/item-detail.component';
 import { ItemEditComponent } from './item/item-edit/item-edit.component';
@@ -30,6 +33,9 @@ const routes: Routes = [
     { path: "item/detail/:id", component: ItemDetailComponent },
     { path: "item/create", component: ItemCreateComponent },
     { path: "item/edit/:id", component: ItemEditComponent },
+    { path: "explines/:id", component: ExpenselineListComponent },
+    { path: "expline/create/:id", component: ExpenselinesCreateComponent },
+    { path: "expline/edit/:id", component: ExpenselinesEditComponent },
     { path: "**", component: EmployeeListComponent }
 ];
 

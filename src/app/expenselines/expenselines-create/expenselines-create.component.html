@@ -1,0 +1,27 @@
+<app-menu></app-menu>
+<h3>Expense Line Create</h3>
+<form>
+    <table class="table">
+        <tbody>
+            <tr>
+                <td>Id</td>
+                <td><input [(ngModel)]="expenseLine.id" disabled name="id"></td>
+            </tr>
+            <tr>
+                <td>Quantity</td>
+                <td><input [(ngModel)]="expenseLine.quantity" name="quantity"></td>
+            </tr>
+            <tr>
+                <td>Item</td>
+                <td>
+                    <select [(ngModel)]="expenseLine.itemId" name="itemid">
+                        <option *ngFor="let i of items" 
+                                value="{{ i.id }}">{{ i.name }}</option>
+                    </select>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <button (click)="save()" class="btn btn-primary">Save</button> | 
+    <button (click)="list()" class="btn btn-primary">List</button>
+</form>

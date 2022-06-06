@@ -1,0 +1,56 @@
+<app-menu></app-menu>
+<h3>Expense Lines Maintenance</h3>
+
+<h2>Expense</h2>
+<table class="table table-striped table-sm" *ngIf="expense">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Description</th>
+            <th>Status</th>
+            <th>total</th>
+            <th>Employee</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>{{ expense.id }}</td>
+            <td>{{ expense.desc }}</td>
+            <td>{{ expense.status }}</td>
+            <td>{{ expense.total | currency }}</td>
+            <td>{{ expense.employee.name }}</td>
+            <td>
+                <button (click)="submit()" class="btn btn-link">Submit</button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<h2>Expenselines</h2>
+<a routerLink='/expline/create/{{ expense.id }}' *ngIf="expense">Create</a>
+
+<table class="table table-striped table-sm" *ngIf="expense">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Item</th>
+            <th>Price</th>
+            <th>Quantity</th>
+            <th>Line Total</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let line of expense.expenseLines">
+            <td>{{ line.id }}</td>
+            <td>{{ line.item.name }}</td>
+            <td>{{ line.item.price | currency }}</td>
+            <td>{{ line.quantity }}</td>
+            <td>{{ line.item.price * line.quantity | currency }}</td>
+            <td>
+                <a routerLink="/expline/edit/{{ line.id }}">Edit</a> |
+                <button (click)="delete(line)" class="btn btn-link">Delete</button>
+            </td>
+        </tr>
+    </tbody>
+</table>
