@@ -17,6 +17,7 @@ import { ItemCreateComponent } from './item/item-create/item-create.component';
 import { ItemDetailComponent } from './item/item-detail/item-detail.component';
 import { ItemEditComponent } from './item/item-edit/item-edit.component';
 import { ItemListComponent } from './item/item-list/item-list.component';
+import { ReviewComponent } from './review/review.component';
 
 const routes: Routes = [
     { path: "", redirectTo:"empl/login", pathMatch: "full" },
@@ -36,6 +37,7 @@ const routes: Routes = [
     { path: "explines/:id", component: ExpenselineListComponent },
     { path: "expline/create/:id", component: ExpenselinesCreateComponent },
     { path: "expline/edit/:id", component: ExpenselinesEditComponent },
+    { path: "review", component: ReviewComponent },
     { path: "**", component: EmployeeListComponent }
 ];
 

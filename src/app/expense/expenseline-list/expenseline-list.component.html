@@ -21,7 +21,7 @@
             <td>{{ expense.total | currency }}</td>
             <td>{{ expense.employee.name }}</td>
             <td>
-                <button (click)="submit()" class="btn btn-link">Submit</button>
+                <button (click)="submit()" class="btn btn-link left">Submit</button>
             </td>
         </tr>
     </tbody>
@@ -49,8 +49,13 @@
             <td>{{ line.item.price * line.quantity | currency }}</td>
             <td>
                 <a routerLink="/expline/edit/{{ line.id }}">Edit</a> |
-                <button (click)="delete(line)" class="btn btn-link">Delete</button>
+                <button (click)="delete(line)" class="btn btn-link left">Delete</button>
             </td>
         </tr>
     </tbody>
 </table>
+<div>
+    <button (click)="list()" class="btn btn-primary">List</button> | 
+    <button (click)="approve()" class="btn btn-primary">Approve</button> |
+    <button (click)="reject()" class="btn btn-primary">Reject</button> 
+</div>

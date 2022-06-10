@@ -23,6 +23,10 @@ import { ItemCreateComponent } from './item/item-create/item-create.component';
 import { ExpenselineListComponent } from './expense/expenseline-list/expenseline-list.component';
 import { ExpenselinesCreateComponent } from './expenselines/expenselines-create/expenselines-create.component';
 import { ExpenselinesEditComponent } from './expenselines/expenselines-edit/expenselines-edit.component';
+import { BoolDisplayPipe } from './misc/bool-display.pipe';
+import { EmployeeSearchPipe } from './misc/employee-search.pipe';
+import { ReviewComponent } from './review/review.component';
+import { SortPipe } from './misc/sort.pipe';
 
 @NgModule({
   declarations: [
@@ -43,7 +47,11 @@ import { ExpenselinesEditComponent } from './expenselines/expenselines-edit/expe
     ItemCreateComponent,
     ExpenselineListComponent,
     ExpenselinesCreateComponent,
-    ExpenselinesEditComponent
+    ExpenselinesEditComponent,
+    BoolDisplayPipe,
+    EmployeeSearchPipe,
+    ReviewComponent,
+    SortPipe
   ],
   imports: [
     BrowserModule, FormsModule, HttpClientModule, RouterModule, AppRoutingModule

@@ -1,19 +1,20 @@
 <app-menu></app-menu>
-<p>Expense List</p>
+<h3>Expense List</h3>
 
 <table class="table table-striped table-sm" *ngIf="expenses">
     <thead>
         <tr>
-            <th>Id</th>
-            <th>Description</th>
-            <th>Status</th>
-            <th>total</th>
+            <th><button (click)="sortFn('id')" class="btn btn-link">Id</button></th>
+            <th><button (click)="sortFn('desc')" class="btn btn-link">Description</button></th>
+            <th><button (click)="sortFn('status')" class="btn btn-link">Status</button></th>
+            <th><button (click)="sortFn('total')" class="btn btn-link">Total</button></th>
+            <th><button (click)="sortFn('employeeName')" class="btn btn-link">Employee</button></th>
             <th>Employee</th>
             <th>Actions</th>
         </tr>
     </thead>
     <tbody>
-        <tr *ngFor="let exp of expenses">
+        <tr *ngFor="let exp of expenses | sort:sortColumn: sortAsc">
             <td>{{ exp.id }}</td>
             <td>{{ exp.desc }}</td>
             <td>{{ exp.status }}</td>

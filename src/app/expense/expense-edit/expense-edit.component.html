@@ -22,7 +22,7 @@
             <tr>
                 <td>Employee</td>
                 <td>
-                    <select [(ngModel)]="expense.employeeId" name="employeeid">
+                    <select [(ngModel)]="expense.employeeId" disabled name="employeeid">
                         <option *ngFor="let emp of employees" 
                                 value="{{ emp.id }}">{{ emp.name }}</option>
                     </select>

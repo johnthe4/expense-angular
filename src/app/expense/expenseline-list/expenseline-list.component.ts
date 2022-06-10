@@ -25,6 +25,30 @@ export class ExpenselineListComponent implements OnInit {
     this.router.navigateByUrl("/exp/list");
   }
 
+  approve(): void {
+    this.expsrvc.approve(this.expense.id, this.expense).subscribe({
+      next: (res) => {
+        console.debug(res)
+        this.router.navigateByUrl("/exp/list");
+      },
+      error: (err) => {
+        console.error(err);
+      }
+    });
+  }
+  
+  reject(): void {
+    this.expsrvc.reject(this.expense.id, this.expense).subscribe({
+      next: (res) => {
+        console.debug(res)
+        this.router.navigateByUrl("/exp/list");
+      },
+      error: (err) => {
+        console.error(err);
+      }
+    });
+  }
+
   submit(): void {
     this.expsrvc.review(this.expense.id, this.expense).subscribe({
       next: (res) => {

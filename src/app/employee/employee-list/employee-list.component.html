@@ -1,6 +1,7 @@
 <app-menu></app-menu>
 <p>Employee List</p>
 
+<input [(ngModel)]="searchCriteria" placeholder="Search">
 <table class="table table-striped table-sm">
     <thead>
         <tr>
@@ -13,12 +14,12 @@
             <th>Actions</th>
         </tr>
     </thead>
-    <tbody>
-        <tr *ngFor="let emp of employees">
+    <tbody *ngIf="employees">
+        <tr *ngFor="let emp of employees | employeeSearch: searchCriteria">
             <td>{{ emp.id }}</td>
             <td>{{ emp.name }}</td>
             <td>{{ emp.email }}</td>
-            <td>{{ emp.admin ? "Yes" : "No" }}</td>
+            <td>{{ emp.admin | bool }}</td>
             <td>{{ emp.expensesDue | currency }}</td>
             <td>{{ emp.expensesPaid | currency }}</td>
             <td>
